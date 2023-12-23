@@ -3,7 +3,6 @@ import { useState } from "react";
 import { getUser } from "../../utilities/users-service";
 import "./App.css";
 import NavBar from "../../components/NavBar/NavBar";
-import Homepage from "../Homepage/Homepage";
 import AdminPortal from "../AdminPortal/AdminPortal";
 import AuthPage from "../AuthPage/AuthPage";
 

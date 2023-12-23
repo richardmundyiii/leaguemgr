@@ -5,9 +5,7 @@ import SeasonIcon from "@mui/icons-material/FilterVintage";
 import PlayerIcon from "@mui/icons-material/Person";
 import TeamIcon from "@mui/icons-material/Group";
 import CreateVenue from "../../components/CreateVenue/CreateVenue";
-// import NewSeason from "../../Components/NewSeason/NewSeason";
-// import AdminHome from "../../Components/AdminHome/AdminHome";
-// import AllVenues from "../../Components/AllVenues/AllVenues";
+import ShowAllVenues from "../../components/ShowAllVenues/ShowAllVenues";
 import SportsBarIcon from "@mui/icons-material/SportsBar";
 import DensitySmallIcon from "@mui/icons-material/DensitySmall";
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
@@ -29,12 +27,10 @@ export default function AdminPortal({ user }) {
     switch (activeComponent) {
       case "create-team":
         return <CreateTeam />;
-      //     // case "new-season":
-      //     //   return <NewSeason />;
       case "create-venue":
         return <CreateVenue />;
-      //     // case "all-venues":
-      //     //   return <AllVenues />;
+      case "all-venues":
+        return <ShowAllVenues />;
       case "all-players":
         return <AllPlayers />;
 

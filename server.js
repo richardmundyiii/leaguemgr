@@ -19,6 +19,8 @@ app.use(require("./config/checkToken"));
 const port = process.env.PORT || 3001;
 
 app.use("/api/users", require("./routes/api/users"));
+app.use("/api/venues", require("./routes/api/venues"));
+app.use("/api/teams", require("./routes/api/teams"));
 
 app.get("/*", function (req, res) {
   res.sendFile(path.join(__dirname, "build", "index.html"));

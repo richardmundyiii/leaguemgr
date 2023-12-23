@@ -7,6 +7,7 @@ import {
   FormControlLabel,
   Typography,
 } from "@mui/material";
+import * as VenuesApi from "../../utilities/venues-api";
 
 export default function CreateVenue() {
   const [venue, setVenue] = useState({
@@ -25,8 +26,20 @@ export default function CreateVenue() {
     setVenue({ ...venue, [name]: inputValue });
   }
 
-  function handleSubmit(evt) {
+  async function handleSubmit(evt) {
     evt.preventDefault();
+    try {
+      const newVenue = await VenuesApi.create(venue);
+      setVenue({
+        name: "",
+        street: "",
+        city: "",
+        imageUrl: "",
+        isSmoking: false,
+      });
+    } catch (err) {
+      setError("Failed to create Venue");
+    }
   }
 
   return (
