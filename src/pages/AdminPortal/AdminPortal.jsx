@@ -13,6 +13,7 @@ import GroupIcon from "@mui/icons-material/Group";
 import GroupsIcon from "@mui/icons-material/Groups";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import CreateTeam from "../../components/CreateTeam/CreateTeam";
+import ShowAllTeams from "../../components/ShowAllTeams/ShowAllTeams";
 
 const drawerWidth = "50vw";
 
@@ -27,6 +28,8 @@ export default function AdminPortal({ user }) {
     switch (activeComponent) {
       case "create-team":
         return <CreateTeam />;
+      case "all-teams":
+        return <ShowAllTeams />;
       case "create-venue":
         return <CreateVenue />;
       case "all-venues":

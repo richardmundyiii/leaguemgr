@@ -12,7 +12,7 @@ import {
 import * as TeamApi from "../../utilities/teams-api";
 import * as VenueApi from "../../utilities/venues-api";
 
-const CreateTeam = ({ onTeamCreated }) => {
+const CreateTeam = () => {
   const [team, setTeam] = useState({
     name: "",
     venue: "",
@@ -40,7 +40,6 @@ const CreateTeam = ({ onTeamCreated }) => {
     try {
       const teamDetails = await TeamApi.create(team);
       setTeam({ name: "", venue: "" });
-      onTeamCreated();
     } catch (err) {
       console.error("Error creating team:", err);
       setError("Failed to Create Team");
@@ -73,7 +72,7 @@ const CreateTeam = ({ onTeamCreated }) => {
                 <em>None</em>
               </MenuItem>
               {venues.map((venue, idx) => (
-                <MenuItem key={idx} value={venue.name}>
+                <MenuItem key={idx} value={venue._id}>
                   {venue.name}
                 </MenuItem>
               ))}

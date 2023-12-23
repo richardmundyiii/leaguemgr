@@ -7,7 +7,7 @@ module.exports = {
 
 async function index(req, res) {
   try {
-    const teams = await Team.find({});
+    const teams = await Team.find({}).populate("venue");
     res.json(teams);
   } catch (err) {
     res.status(400).json(err);

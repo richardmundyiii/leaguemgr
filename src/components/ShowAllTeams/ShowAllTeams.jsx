@@ -27,7 +27,7 @@ export default function ShowAllTeams() {
           {teams.map((team, idx) => (
             <tr key={idx}>
               <td>{team.name}</td>
-              <td>{team.venue}</td>
+              <td>{team.venue ? team.venue.name : "No Venue Assigned"}</td>
             </tr>
           ))}
         </tbody>
