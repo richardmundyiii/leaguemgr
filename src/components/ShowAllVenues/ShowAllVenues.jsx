@@ -18,14 +18,14 @@ export default function ShowAllVenues() {
     async function getAllVenues() {
       const venues = await VenuesApi.getAllVenues();
 
-      // const venuesWithTeams = await Promise.all(
-      //   venues.map(async (venueId) => {
-      //     const teams = VenuesApi.getTeamsByVenueId(venueId);
-      //     console.log(teams);
-      //     return { ...venues, teams };
-      //   })
-      // );
-      setVenues(venues);
+      const venuesWithTeams = await Promise.all(
+        venues.map(async (venueId) => {
+          const teams = VenuesApi.getTeamsByVenueId(venueId);
+          console.log(teams);
+          return { ...venues, teams };
+        })
+      );
+      setVenues(venuesWithTeams);
     }
     getAllVenues();
   }, []);
