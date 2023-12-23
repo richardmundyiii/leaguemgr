@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import * as TeamsApi from "../../utilities/teams-api";
+import { Table } from "@mui/material";
 
 export default function ShowAllTeams() {
   const [teams, setTeams] = useState([]);
@@ -15,7 +16,7 @@ export default function ShowAllTeams() {
   return (
     <>
       <h1>Show All Teams</h1>
-      <table>
+      <Table>
         <thead>
           <tr>
             <th>Name</th>
@@ -30,7 +31,7 @@ export default function ShowAllTeams() {
             </tr>
           ))}
         </tbody>
-      </table>
+      </Table>
     </>
   );
 }

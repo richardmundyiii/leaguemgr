@@ -1,5 +1,13 @@
 import { useState, useEffect } from "react";
 import * as usersApi from "../../utilities/users-api";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+} from "@mui/material";
 
 export default function AllPlayers() {
   const [players, setPlayers] = useState([]);
@@ -15,24 +23,26 @@ export default function AllPlayers() {
   return (
     <>
       <h1>All Players</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
-          </tr>
-        </thead>
-        <tbody>
-          {players.map((player, idx) => (
-            <tr key={idx}>
-              <td>{player.firstName}</td>
-              <td>{player.lastName}</td>
-              <td>{player.email}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <TableContainer>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>First Name</TableCell>
+              <TableCell>Last Name</TableCell>
+              <TableCell>Email</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {players.map((player, idx) => (
+              <TableRow key={idx}>
+                <TableCell>{player.firstName}</TableCell>
+                <TableCell>{player.lastName}</TableCell>
+                <TableCell>{player.email}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </>
   );
 }
