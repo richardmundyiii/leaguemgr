@@ -3,10 +3,20 @@ const bcrypt = require("bcrypt");
 const User = require("../../models/user");
 
 module.exports = {
+  index,
   create,
   login,
   checkToken,
 };
+
+async function index(req, res) {
+  try {
+    const users = await User.find({});
+    res.json(users);
+  } catch (err) {
+    res.statsu(400).json(err);
+  }
+}
 
 async function create(req, res) {
   try {
